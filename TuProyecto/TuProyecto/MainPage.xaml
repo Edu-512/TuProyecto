@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TuProyecto.MainPage">
+
+
+
+
+    <ContentPage.Resources>
+        <Style TargetType="Entry" x:Key="EntryStyle">
+            <Setter Property="BackgroundColor" Value="DarkGray" />
+            <Setter Property="TextColor" Value="#333333" />
+            <Setter Property="PlaceholderColor" Value="Black" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+        <Style TargetType="Frame" x:Key="EntryFrameStyle">
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="BackgroundColor" Value="Black" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="Calificaciones" FontSize="20" HorizontalOptions="Center" Margin="0,0,0,10" />
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Frame Style="{StaticResource EntryFrameStyle}">
+                    <Entry x:Name="estudianteEntry" Placeholder="Estudiante" Style="{StaticResource EntryStyle}" />
+                </Frame>
+                <Frame Style="{StaticResource EntryFrameStyle}">
+                    <Entry x:Name="valorEntry" Placeholder="Valor" Keyboard="Numeric" Style="{StaticResource EntryStyle}" />
+                </Frame>
+                <Button Text="Agregar Calificación" Clicked="AgregarCalificacion_Clicked" Margin="10,0,0,0" />
+            </StackLayout>
+
+            <Picker x:Name="estudiantePicker" Title="Seleccionar Estudiante" SelectedIndexChanged="EstudiantePicker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Estudiante 1</x:String>
+                        <x:String>Estudiante 2</x:String>
+                        <x:String>Estudiante 3</x:String>
+                        <!-- Agrega más nombres de estudiantes según tus necesidades -->
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Button Text="Calcular Promedio" Clicked="CalcularPromedio_Clicked" Margin="0,10,0,0" />
+
+            <Frame Style="{StaticResource EntryFrameStyle}">
+                <Label x:Name="resultadoLabel" FontSize="24" HorizontalOptions="Center" Margin="0,20,0,0" />
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
